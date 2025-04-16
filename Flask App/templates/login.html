@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-gradient-to-br from-gray-900 to-gray-800 text-white flex justify-center items-center min-h-screen p-4">
+    <div class="bg-black/50 rounded-2xl shadow-2xl backdrop-blur-md p-8 max-w-md w-full border border-white/10">
+        <h1 class="text-3xl font-semibold text-center text-white mb-6">Login to SmartAttendance</h1>
+        <form method="POST" action="/login" class="space-y-6">
+            <div>
+                <label for="email" class="block text-gray-300 text-sm font-bold mb-2">Email</label>
+                <input type="email" name="email" id="email" required
+                    class="shadow appearance-none border rounded-xl w-full py-3 px-4 text-gray-300 leading-tight focus:outline-none focus:shadow-outline bg-gray-800 border-gray-700 placeholder:text-gray-400">
+            </div>
+            <div>
+                <label for="password" class="block text-gray-300 text-sm font-bold mb-2">Password</label>
+                <input type="password" name="password" id="password" required
+                    class="shadow appearance-none border rounded-xl w-full py-3 px-4 text-gray-300 leading-tight focus:outline-none focus:shadow-outline bg-gray-800 border-gray-700 placeholder:text-gray-400">
+            </div>
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <input type="radio" id="student" name="user_type" value="student"
+                        class="mr-2 h-4 w-4 rounded-md text-blue-600 focus:ring-blue-500 border-gray-700">
+                    <label for="student" class="text-gray-300 text-sm">Student</label>
+                </div>
+                <div class="flex items-center">
+                    <input type="radio" id="teacher" name="user_type" value="teacher"
+                        class="mr-2 h-4 w-4 rounded-md text-blue-600 focus:ring-blue-500 border-gray-700">
+                    <label for="teacher" class="text-gray-300 text-sm">Teacher</label>
+                </div>
+            </div>
+            <button type="submit"
+                class="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-bold py-3 px-6 rounded-full focus:outline-none focus:shadow-outline w-full transition duration-300 ease-in-out">
+                Log In
+            </button>
+        </form>
+        <div class="mt-6 text-center">
+            <a href="/studentOrteacher"
+                class="text-blue-400 hover:text-blue-300 transition duration-200 inline-block text-sm font-semibold">
+                Don't have an account? Register
+            </a>
+        </div>
+    </div>
+</body>
+
+</html>

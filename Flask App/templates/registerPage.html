@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>register student or teacher</title>
+    <link rel="stylesheet" href="index_style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Ponomar&family=Winky+Sans:ital,wght@0,300..900;1,300..900&display=swap"
+        rel="stylesheet">
+    <style>
+        html {
+            font-size: 14px;
+            height: 100%;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: "Montserrat", sans-serif;
+            display: flex; /* Enable flexbox for the body */
+            justify-content: center; /* Center content horizontally */
+            align-items: center; /* Center content vertically */
+            background-color: #151d20; /* Added background color for better visibility */
+        }
+
+        .page_wraper {
+            width: 100%; /* Make the wrapper take full width */
+            height: 100%;
+            /* background-image: url("C:\\Users\\itsme\\OneDrive\\Desktop\\Flask App\\attendance.jpg");*/
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex; /* Enable flexbox for the wrapper */
+            flex-direction: column; /* Stack header and section vertically */
+            align-items: center; /* Center items horizontally within the wrapper */
+        }
+
+        header {
+            padding: 1rem 0; /* Adjust padding */
+            width: 100%; /* Make header full width */
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center; /* Vertically align items in the nav */
+            padding: 0 2rem; /* Add some padding to the nav */
+        }
+
+        nav h1 a{
+            font-family: "Winky Sans", sans-serif;
+            color: rgb(208, 209, 205);
+            font-size: 2rem;
+            margin: 0; /* Remove default margin for h1 */
+            text-decoration: none;
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            align-items: center;
+            margin: 0; /* Remove default margin for ul */
+            padding: 0; /* Remove default padding for ul */
+        }
+
+        nav ul li {
+            padding: 0 1rem; /* Adjust padding for list items */
+        }
+
+        nav ul li a {
+            font-weight: 500;
+            color: rgb(169, 241, 97);
+            text-decoration: none;
+            font-size: 1.3rem;
+        }
+
+        nav ul li a:hover {
+            color: white;
+        }
+
+        section {
+            display: flex;
+            justify-content: center; /* Center the hero horizontally */
+            align-items: center; /* Center the hero vertically */
+            flex-grow: 1; /* Allow section to take remaining vertical space */
+        }
+
+        .hero {
+            display:grid;
+            gap: 20px; /* Add some space between the buttons */
+        }
+
+        .hero button {
+            padding: 15px 30px; /* Adjust button padding */
+            font-size: 1rem; /* Adjust font size */
+            cursor: pointer; /* Add a pointer cursor on hover */
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff; /* Example button color */
+            
+            font-size: larger;
+        }
+
+        .hero button:hover {
+            background-color: #0056b3;
+        }
+        .hero button a{
+            text-decoration: none;
+            color: white;
+        }
+
+        .container {
+            max-width: 1200px; /* Limit the width of the header content */
+            width: 100%;
+            margin: 0 auto; /* Center the container */
+        }
+
+        @media screen and (max-width: 1260px) {
+            .container {
+                padding: 0 20px; /* Add padding for smaller screens */
+            }
+        }
+
+        @media screen and (max-width: 960px) {
+            html {
+                font-size: 12px;
+            }
+
+            nav ul li {
+                padding: 0 0.5rem;
+            }
+
+            nav ul li a {
+                font-size: 1rem;
+            }
+        }
+
+        @media screen and (max-width: 760px) {
+            header {
+                padding: 1rem;
+            }
+
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav ul {
+                margin-top: 1rem;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav ul li {
+                padding: 0.5rem 0;
+            }
+
+            .hero {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero button {
+                width: 80%;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page_wraper">
+        <header>
+            <div class="container">
+                <nav>
+                    <h1><a href="/">SmartAttendance</a></h1>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/login">Login</a></li>
+                        <li><a href="/about">About us</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <section>
+            <div class="hero">
+                <button type="submit" class="btn btn-primary"><a href="{{url_for('student_Reg')}}">Student Register</a></button>
+                <button type="submit" class="btn btn-primary"><a href="{{url_for('teacher_Reg')}}">Teacher Register</a></button>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

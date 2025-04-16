@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student registration page</title>
+    <link rel="stylesheet" href="index_style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Ponomar&family=Winky+Sans:ital,wght@0,300..900;1,300..900&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <style>
+        html {
+            font-size: 14px;
+            height: 100%;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: "Montserrat", sans-serif;
+            display: flex;
+            /* Enable flexbox for the body */
+            justify-content: center;
+            /* Center content horizontally */
+            align-items: center;
+            /* Center content vertically */
+            background-color: #151d20;
+            /* Added background color for better visibility */
+        }
+
+        .page_wraper {
+            width: 100%;
+            /* Make the wrapper take full width */
+            height: 100%;
+            /* background-image: url("C:\\Users\\itsme\\OneDrive\\Desktop\\Flask App\\attendance.jpg");*/
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            /* Enable flexbox for the wrapper */
+            flex-direction: column;
+            /* Stack header and section vertically */
+            align-items: center;
+            /* Center items horizontally within the wrapper */
+        }
+
+        header {
+            padding: 1rem 0;
+            /* Adjust padding */
+            width: 100%;
+            /* Make header full width */
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            /* Vertically align items in the nav */
+            padding: 0 2rem;
+            /* Add some padding to the nav */
+        }
+
+        nav h1 > a{
+            font-family: "Winky Sans", sans-serif;
+            color: rgb(208, 209, 205);
+            font-size: 2rem;
+            margin: 0;
+            /* Remove default margin for h1 */
+            text-decoration: none;
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            align-items: center;
+            margin: 0;
+            /* Remove default margin for ul */
+            padding: 0;
+            /* Remove default padding for ul */
+        }
+
+        nav ul li {
+            padding: 0 1rem;
+            /* Adjust padding for list items */
+        }
+
+        nav ul li a {
+            font-weight: 500;
+            color: rgb(169, 241, 97);
+            text-decoration: none;
+            font-size: 1.3rem;
+        }
+
+        nav ul li a:hover {
+            color: white;
+        }
+        section{
+            margin-top: 2rem;
+            background-color:rgba(85, 82, 82, 0.649);
+            border-radius: 8px;
+        }
+        section .container form{
+            color: #fff;
+        }
+        
+        section .container h2{
+            color:rgb(236, 176, 25);
+        }
+
+        .container {
+            max-width: 1200px;
+            /* Limit the width of the header content */
+            width: 100%;
+            margin: 0 auto;
+            /* Center the container */
+        }
+
+        @media screen and (max-width: 1260px) {
+            .container {
+                padding: 0 20px;
+                /* Add padding for smaller screens */
+            }
+        }
+
+        @media screen and (max-width: 960px) {
+            html {
+                font-size: 12px;
+            }
+
+            nav ul li {
+                padding: 0 0.5rem;
+            }
+
+            nav ul li a {
+                font-size: 1rem;
+            }
+        }
+
+        @media screen and (max-width: 760px) {
+            header {
+                padding: 1rem;
+            }
+
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav ul {
+                margin-top: 1rem;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav ul li {
+                padding: 0.5rem 0;
+            }
+
+            .hero {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero button {
+                width: 80%;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page_wraper">
+        <header>
+            <div class="container">
+                <nav>
+                    <h1><a href="/">SmartAttendance</a></h1>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/login">Login</a></li>
+                        <li><a href="/about">About us</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <section>
+            <div class="container my-3 ">
+                <h2>Student Register</h2>
+                <form action="/studentRegister" method="POST">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name:</label>
+                        <input type="text" class="form-control" name="name" id="name" aria-describedby="nameInput" placeholder="Enter your name correctly.">
+                        <!-- <div id="nameInput" class="form-text" style="color: #fff;">Enter your name correctly.</div> -->
+                    </div>
+                    <div class="mb-3">
+                        <label for="rollNo" class="form-label">Enter your current Semester:</label>
+                        <!-- The second value will be selected initially -->
+                        <select name="choice" class="form-control" id="rollNo">
+                            <option value="NULL" selected>Semester</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="rollNo" class="form-label">Enter your roll no.:</label>
+                        <input type="text" class="form-control" name="rollNo" id="rollNo" placeholder="Roll Number">
+                    </div>
+                    <div class="mb-3">
+                        <label for="emailAdd" class="form-label">College e-mail address:</label>
+                        <input type="text" class="form-control" name="emailAdd" id="exampleFormControlInput1"
+                            placeholder="name@example.com">
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Enter your password:</label>
+                        <input type="password" class="form-control" name="password" id="password" placeholder="Strong Password">
+                    </div>
+                    <div class="mb-3">
+                        <label for="formFileMultiple" class="form-label">Upload your image:</label>
+                        <input class="form-control" type="file" name="pic" id="formFileMultiple" multiple>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>

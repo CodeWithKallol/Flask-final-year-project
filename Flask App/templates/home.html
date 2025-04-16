@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Smart Attendance</title>
+    <link rel="stylesheet" href="index_style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Ponomar&family=Winky+Sans:ital,wght@0,300..900;1,300..900&display=swap"
+        rel="stylesheet">
+    
+    <style>
+        html {
+            font-size: 14px;
+            height: 100%;
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: "Montserrat", sans-serif;
+        }
+        
+        
+        
+        .page_wraper {
+            height: 100%;
+            background-color: #151d20;
+            background-image: url("static\\homepage.gif");
+            background-repeat: no-repeat;
+            background-size:cover;
+            background-position: center; /* Optional: Center the image */
+            background-attachment: fixed;
+        
+            header {
+                padding: 0;
+        
+                nav {
+                    display: flex;
+                    justify-content: space-between;
+        
+                    h1 > a{
+                        font-family: "Winky Sans", sans-serif;
+                        color: rgb(208, 209, 205);
+                        font-size: 2rem;
+                        text-decoration: none;
+                    }
+        
+                    ul {
+                        list-style-type: none;
+                        display: flex;
+                        align-items: center;
+        
+                        li {
+                            padding: 0 2rem;
+                        }
+        
+                        a {
+                            font-weight: 500;
+                            color: rgb(169, 241, 97);
+                            text-decoration: none;
+                            font-size: 1.3rem;
+                        }
+        
+                        a:hover {
+                            color: white;
+                        }
+                    }
+                }
+            }
+        
+            section>.hero {
+                padding-top: 6rem;
+        
+                h2 {
+                    color: rgb(255, 255, 255);
+                    font-size: 3rem;
+                    font-weight: 400;
+        
+                    span {
+                        font-size: 6rem;
+                        display: block;
+                        font-weight: 700;
+                        color: rgb(59, 206, 43);
+                    }
+                }
+        
+                p {
+                    font-weight: 600;
+                    color: rgb(251, 224, 173);
+                    font-size: 1.4rem;
+                }
+        
+                button {
+                    background-color: rgb(59, 206, 43);
+                    padding: 1rem 3rem;
+                    border-radius: 2rem;
+                    font-size: 1.3rem;
+                    border: 0;
+                    margin-top: 2.5rem;
+                }
+        
+                button:hover {
+                    background-color: gray;
+                    color: antiquewhite;
+                    cursor: pointer;
+                }
+            }
+        }
+        
+        .container {
+            width: auto;
+            margin: 0 300px;
+        }
+        
+        @media screen and (max-width: 1260px) {
+            .container {
+                margin: 0 200px;
+            }
+        }
+        
+        @media screen and (max-width: 960px) {
+            html {
+                font-size: 12px;
+            }
+        }
+        
+        @media screen and (max-width: 760px) {
+            .container {
+                width: 100%;
+                margin: 0;
+            }
+        
+            .page_wraper {
+                header {
+                    padding: 2rem;
+                }
+        
+                section>.hero {
+                    padding: 0 2rem;
+                }
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="page_wraper">
+        <header>
+            <div class="container">
+                <nav>
+                    <h1><a href="/">SmartAttendance</a></h1>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/studentOrteacher">Register</a></li>
+                        <li><a href="/login">Login</a></li>
+                        <li><a href="/about">About us</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <section>
+            <div class="hero">
+                <div class="container">
+                    <h2>Welcome to <span>Smart Attendance</span></h2>
+                    <p>A modern attendance system for students</p>
+                    <button>Learn More</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+</body>
+
+</html>
