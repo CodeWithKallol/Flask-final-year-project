@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBgzWqIDvrjnednFiYKBcOJxMvG/70Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .registration-container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .registration-header {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #007bff;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+            color: #343a40;
+        }
+
+        .form-control {
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            padding: 10px;
+            width: 100%;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        .form-control:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 12px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        .form-text {
+            font-size: 14px;
+            color: #6c757d;
+            margin-top: 5px;
+        }
+
+        .error-message {
+            color: #dc3545;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        /* Cool Enhancements */
+        .registration-container::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, #007bff, #28a745, #ffc107);
+            border-radius: 5px 5px 0 0;
+        }
+
+        .input-group {
+            position: relative;
+        }
+
+        .input-group .fa {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #6c757d;
+        }
+
+        .input-group .form-control {
+            padding-left: 40px;
+        }
+
+        #password-toggle {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #6c757d;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="registration-container position-relative">
+        <h2 class="registration-header"><i class="fa fa-user-plus me-2"></i> Student Registration</h2>
+        <form action="/studentRegister" method="POST" enctype="multipart/form-data" id="registrationForm">
+            <div class="mb-3 input-group">
+                <span class="fa fa-user"></span>
+                <label for="name" class="form-label visually-hidden">Name:</label>
+                <input type="text" class="form-control" name="name" id="name" placeholder="Full Name" required>
+                <div class="error-message" id="nameError"></div>
+            </div>
+            <div class="mb-3 input-group">
+                <span class="fa fa-graduation-cap"></span>
+                <label for="semester" class="form-label visually-hidden">Semester:</label>
+                <select name="choice" class="form-control" id="semester" required>
+                    <option value="" disabled selected>Select Semester</option>
+                    <option value="1">Semester 1</option>
+                    <option value="2">Semester 2</option>
+                    <option value="3">Semester 3</option>
+                    <option value="4">Semester 4</option>
+                    <option value="5">Semester 5</option>
+                    <option value="6">Semester 6</option>
+                    <option value="7">Semester 7</option>
+                    <option value="8">Semester 8</option>
+                </select>
+                <div class="error-message" id="semesterError"></div>
+            </div>
+            <div class="mb-3 input-group">
+                <span class="fa fa-id-card"></span>
+                <label for="rollNo" class="form-label visually-hidden">Roll No:</label>
+                <input type="text" class="form-control" name="rollNo" id="rollNo" placeholder="Roll Number" required>
+                <div class="error-message" id="rollNoError"></div>
+            </div>
+            <div class="mb-3 input-group">
+                <span class="fa fa-envelope"></span>
+                <label for="emailAdd" class="form-label visually-hidden">Email:</label>
+                <input type="email" class="form-control" name="emailAdd" id="emailAdd"
+                    placeholder="College Email Address" required>
+                <div class="error-message" id="emailAddError"></div>
+            </div>
+            <div class="mb-3 input-group">
+                <span class="fa fa-lock"></span>
+                <label for="password" class="form-label visually-hidden">Password:</label>
+                <input type="password" class="form-control" name="password" id="password" placeholder="Password"
+                    required>
+                <span id="password-toggle" class="fa fa-eye"></span>
+                <div class="error-message" id="passwordError"></div>
+                <div class="form-text">Use a strong password with a mix of letters, numbers, and symbols.</div>
+            </div>
+            <div class="mb-3">
+                <label for="pic" class="form-label"><i class="fa fa-upload me-2"></i> Upload Your Image:</label>
+                <input class="form-control" type="file" name="pic" id="pic" accept="image/*" required>
+                <div class="form-text">Only JPG, JPEG, and PNG files are allowed. Max size 2MB.</div>
+                <div class="error-message" id="picError"></div>
+            </div>
+            <button type="submit" class="btn btn-primary"><i class="fa fa-check me-2"></i> Register</button>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const passwordInput = document.getElementById('password');
+            const passwordToggle = document.getElementById('password-toggle');
+            const registrationForm = document.getElementById('registrationForm');
+            const nameInput = document.getElementById('name');
+            const semesterSelect = document.getElementById('semester');
+            const rollNoInput = document.getElementById('rollNo');
+            const emailAddInput = document.getElementById('emailAdd');
+            const picInput = document.getElementById('pic');
+
+            if (passwordToggle && passwordInput) {
+                passwordToggle.addEventListener('click', function () {
+                    const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                    passwordInput.setAttribute('type', type);
+                    this.classList.toggle('fa-eye');
+                    this.classList.toggle('fa-eye-slash');
+                });
+            }
+
+            if (registrationForm) {
+                registrationForm.addEventListener('submit', function (event) {
+                    let isValid = true;
+
+                    // Basic client-side validation (you should also have server-side validation)
+                    if (nameInput.value.trim() === '') {
+                        document.getElementById('nameError').textContent = 'Please enter your full name.';
+                        isValid = false;
+                    } else {
+                        document.getElementById('nameError').textContent = '';
+                    }
+
+                    if (semesterSelect.value === '') {
+                        document.getElementById('semesterError').textContent = 'Please select your semester.';
+                        isValid = false;
+                    } else {
+                        document.getElementById('semesterError').textContent = '';
+                    }
+
+                    if (rollNoInput.value.trim() === '') {
+                        document.getElementById('rollNoError').textContent = 'Please enter your roll number.';
+                        isValid = false;
+                    } else {
+                        document.getElementById('rollNoError').textContent = '';
+                    }
+
+                    if (emailAddInput.value.trim() === '' || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailAddInput.value)) {
+                        document.getElementById('emailAddError').textContent = 'Please enter a valid college email address.';
+                        isValid = false;
+                    } else {
+                        document.getElementById('emailAddError').textContent = '';
+                    }
+
+                    if (passwordInput.value.length < 8) {
+                        document.getElementById('passwordError').textContent = 'Password must be at least 8 characters long.';
+                        isValid = false;
+                    } else {
+                        document.getElementById('passwordError').textContent = '';
+                    }
+
+                    if (picInput.files.length === 0) {
+                        document.getElementById('picError').textContent = 'Please upload your image.';
+                        isValid = false;
+                    } else {
+                        const file = picInput.files[0];
+                        const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png'];
+                        const maxSizeMB = 2;
+                        if (!allowedTypes.includes(file.type)) {
+                            document.getElementById('picError').textContent = 'Only JPG, JPEG, and PNG files are allowed.';
+                            isValid = false;
+                        } else if (file.size > maxSizeMB * 1024 * 1024) {
+                            document.getElementById('picError').textContent = `File size must be less than ${maxSizeMB}MB.`;
+                            isValid = false;
+                        } else {
+                            document.getElementById('picError').textContent = '';
+                        }
+                    }
+
+                    if (!isValid) {
+                        event.preventDefault(); // Prevent form submission if validation fails
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generate Dataset</title>
+</head>
+<body>
+    <h1>Generate Face Dataset</h1>
+    {% if session['user_type'] == 'student' %}
+        <p>Click the button below to start collecting your face data.</p>
+        <a href="{{ url_for('generate_dataset_for_logged_in_student') }}">Start Face Data Collection</a>
+    {% else %}
+        <p>You need to be logged in as a student to generate your face dataset.</p>
+        <a href="{{ url_for('login') }}">Login</a>
+    {% endif %}
+</body>
+</html>
